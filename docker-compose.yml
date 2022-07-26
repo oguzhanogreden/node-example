@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+    volumes:
+      - ./mount/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mount/data:/data
+  backend:
+    build: .
+    depends_on:
+      - "db"
+    restart: always
+    ports:
+      - 3000:3000
+    working_dir: "/app"

@@ -1,0 +1,1 @@
+export type PaginationQueryParams = { skip?: number, take?: number }

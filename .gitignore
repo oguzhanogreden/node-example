@@ -1,0 +1,7 @@
+node_modules
+
+*.js
+
+# TODO: Remove once you hide names that make the project
+#       identifiable.
+mount
