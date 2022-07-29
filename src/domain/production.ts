@@ -12,9 +12,9 @@ export class Production {
   @ManyToOne(() => Park, park => park.production, { eager: true })
   park!: Park
 
-  @Column({ nullable: true, type: 'timestamp' })
+  @Column({ nullable: false, type: 'timestamp' })
   timestamp!: Date
 
-  @Column({ nullable: true, type: 'float' })
-  value!: number | null;
+  @Column({ nullable: false, type: 'float' })
+  value!: number;
 }
