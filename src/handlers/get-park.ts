@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import { PaginationQueryParams } from "../dto.types";
 import { parkService } from "../services/park.service";
+import { PaginationQueryParams } from "./handler.types";
 
 type GetParkPathParams = {
   id: number
