@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import { Between } from "typeorm";
-import { otcDataSource } from "../db";
+import { dataSource } from "../db";
 import { EnergyType } from "../domain/energy-type";
 import { Production } from "../domain/production";
 import { aggregationService, GroupBy } from "../services/aggregation-service/aggregation.service";
@@ -35,7 +35,7 @@ const handler = async function (req: Request<GetProductionPathParams, Production
   // it's currently left here since the API scope isn't very clear.
   const queryPeriod = getQueryPeriodInJsDate(from, until);
 
-  const production = await otcDataSource.getRepository(Production).find({
+  const production = await dataSource.getRepository(Production).find({
     relations: {
       park: true
     },

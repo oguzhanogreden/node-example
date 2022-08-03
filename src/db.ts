@@ -2,7 +2,7 @@ import { DataSource, EntityTarget } from "typeorm";
 
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
-export const otcDataSource = new DataSource({
+export const dataSource = new DataSource({
   type: "postgres",
   host: "db",
   port: 5432,
@@ -15,5 +15,5 @@ export const otcDataSource = new DataSource({
 })
 
 export function getRepository<T>(type: EntityTarget<T>) {
-  return otcDataSource.getRepository<T>(type);
+  return dataSource.getRepository<T>(type);
 }

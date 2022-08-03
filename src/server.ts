@@ -1,7 +1,7 @@
 import { app } from "./app";
-import { otcDataSource } from "./db";
+import { dataSource } from "./db";
 
-otcDataSource.initialize()
+dataSource.initialize()
   // Ideally: Server shouldn't receive traffic before database is initialised.
   //          Using a K8s-based infrastructure, we can achieve this with readiness checks.
   .then(() => console.log("Connected to database."))
